@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dynamic Product Explorer</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container">
+            <h1>Dynamic Product Explorer</h1>
+            <p>Explore products using live REST API data</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Search and Filters -->
+        <section class="controls">
+
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Search products..."
+                aria-label="Search products"
+            >
+
+            <select id="sortSelect" aria-label="Sort products">
+                <option value="default">Sort By</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="name">Name: A to Z</option>
+            </select>
+
+        </section>
+
+        <!-- Category Buttons -->
+        <section class="categories">
+
+    <button class="category-btn active" data-category="all">
+        All
+    </button>
+
+    <button class="category-btn" data-category="beauty">
+        Beauty
+    </button>
+
+    <button class="category-btn" data-category="fragrances">
+        Fragrances
+    </button>
+
+    <button class="category-btn" data-category="furniture">
+        Furniture
+    </button>
+
+    <button class="category-btn" data-category="groceries">
+        Groceries
+    </button>
+
+    <button class="category-btn" data-category="laptops">
+        Laptops
+    </button>
+
+</section>
+
+        <!-- Error Message -->
+        <div id="errorMessage" class="error-message hidden">
+    <strong>Unable to load products.</strong>
+    <p>Please check your internet connection and try again.</p>
+    <button id="retryButton">Try Again</button>
+</div>
+        <!-- Loading Skeleton -->
+        <div id="loading" class="loading">
+            <div class="skeleton"></div>
+            <div class="skeleton"></div>
+            <div class="skeleton"></div>
+            <div class="skeleton"></div>
+        </div>
+
+        <!-- Products -->
+        <section
+            id="productContainer"
+            class="product-grid"
+            aria-live="polite"
+        >
+        </section>
+
+    </main>
+
+    <script type="module" src="js/app.js"></script>
+
+</body>
+</html>
